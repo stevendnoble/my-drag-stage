@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <div class="card mt-5 mb-5 rounded-3 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title text-center mt-4"><%= season.name %>(<%= season.year %>)</h2>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Year</th>
+              <th scope="col">Contestants</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row"><%= season.name %></td>
+              <td><%= season.year %></td>
+              <td><%= season['count(*)'] %></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="d-grid mb-5">
+          <a href="/seasons/<%= season.id %>/edit" class="btn btn-outline-danger">Edit Season</a>
+        </div>
+        <h3 class="card-title text-center mt-4">
+          Drag Queens from <%= season.name %>
+        </h3>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">Hometown</th>
+              <th scope="col">Place</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% drag_queens.forEach(queen => { %>
+              <tr>
+                <td scope="row">
+                  <a href="/drag-queens/<%= queen.id %>/edit" class="link-danger">
+                    <%= queen.name %>
+                  </a>
+                </td>
+                <td><%= queen.age_during_season %></td>
+                <td><%= queen.hometown %></td>
+                <td><%= queen.placement %></td>
+                <td>
+                  <form
+                    action="/drag-queens/<%= queen.id %>/delete"\
+                    method="POST"
+                    class="container"
+                  >
+                    <button type="submit" class="btn btn-danger">
+                      Delete
+                    </button>
+                  </form>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <div class="d-grid mb-4">
+          <a href="/drag-queens/new" class="btn btn-danger">Add a Drag Queen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

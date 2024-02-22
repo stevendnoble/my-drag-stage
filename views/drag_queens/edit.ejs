@@ -56,7 +56,10 @@
             <label for="drag-queen-season-id">Season</label>
             <select class="form-control" id="drag-queen-season-id" name="season_id">
               <% seasons.forEach(season => { %>
-                <option value="<%= season.id %>" selected=[]>
+                <option
+                  value="<%= season.id %>"
+                  <%= (season.id === drag_queen.season_id) ? 'selected' : '' %>
+                >
                   <%= season.name %> - <%= season.year %>
                 </option>
               <% }); %>
