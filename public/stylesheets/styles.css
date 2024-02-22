@@ -1,0 +1,13 @@
+.home-container {
+	background-image: url("/images/drag-queen-bg.jpg");
+	background-size: cover;
+	background-position: center;
+	height: calc(100vh - 56px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+a {
+	text-decoration: none;
+}

@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <div class="card mt-5 mb-5 rounded-3 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title text-center mt-4">Seasons</h2>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col"><a href="/seasons?order_by=name" class="link-danger">Name</a></th>
+              <th scope="col"><a href="/seasons?order_by=year" class="link-danger">Year</a></th>
+              <th scope="col">Contestants</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% seasons.forEach(season => { %>
+              <tr>
+                <td scope="row">
+                  <a href="/seasons/<%= season.id %>" class="link-danger">
+                    <%= season.name %>
+                  </a>
+                </td>
+                <td><%= season.year %></td>
+                <td><%= season.drag_queen_count %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <div class="d-grid mb-4">
+          <a href="/seasons/new" class="btn btn-danger">Add a Season</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

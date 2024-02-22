@@ -1,0 +1,84 @@
+<div class="row h-100 align-items-center">
+  <div class="col-md-6 offset-md-3">
+    <div class="card mt-5 mb-5 rounded-3 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title text-center mt-4">Edit <%= drag_queen.name %></h2>
+        <form
+          action="/drag-queens/<%= drag_queen.id %>"
+          method="POST"
+          class="container mt-5"
+        >
+          <div class="mb-3">
+            <label for="drag-queen-name" class="form-label">Drag Queen Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="drag-queen-name"
+              name="name"
+              value="<%= drag_queen.name %>"
+              required
+            >
+          </div>
+          <div class="mb-3">
+            <label for="drag-queen-age-during-season">Age During Season</label>
+            <input
+              type="number"
+              class="form-control"
+              id="drag-queen-age-during-season"
+              name="age_during_season"
+              value="<%= drag_queen.age_during_season %>"
+              required
+            >
+          </div>
+          <div class="mb-3">
+            <label for="drag-queen-hometown">Hometown</label>
+            <input
+              type="text"
+              class="form-control"
+              id="drag-queen-hometown"
+              name="hometown"
+              value="<%= drag_queen.hometown %>"
+              required
+            >
+          </div>
+          <div class="mb-3">
+            <label for="drag-queen-placement">Placement</label>
+            <input
+              type="text"
+              class="form-control"
+              id="drag-queen-placement"
+              name="placement"
+              value="<%= drag_queen.placement %>"
+              required
+            >
+          </div>
+          <div class="mb-3">
+            <label for="drag-queen-season-id">Season</label>
+            <select class="form-control" id="drag-queen-season-id" name="season_id">
+              <% seasons.forEach(season => { %>
+                <option value="<%= season.id %>" selected=[]>
+                  <%= season.name %> - <%= season.year %>
+                </option>
+              <% }); %>
+            </select>
+          </div>
+          <div class="d-grid mb-3">
+            <button
+              type="submit" class="btn btn-danger">Update <%= drag_queen.name %></button>
+          </div>
+        </form>
+        <form
+          action="/drag-queens/<%= drag_queen.id %>/delete"\
+          method="POST"
+          class="container"
+        >
+          <div class="d-grid mb-4">
+            <button type="submit" class="btn btn-outline-danger">
+              Delete <%= drag_queen.name %>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

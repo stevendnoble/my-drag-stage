@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <div class="card mt-5 mb-5 rounded-3 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title text-center mt-4"><a href="/drag-queens" class="link-danger">Drag Queens</a></h2>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col"><a href="/drag-queens?order_by=name" class="link-danger">Name</a></th>
+              <th scope="col"><a href="/drag-queens?order_by=age_during_season" class="link-danger">Age</a></th>
+              <th scope="col"><a href="/drag-queens?order_by=hometown" class="link-danger">Hometown</a></th>
+              <th scope="col"><a href="/drag-queens?order_by=placement" class="link-danger">Placement</a></th>
+              <th scope="col">Season</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% drag_queens.forEach(queen => { %>
+              <tr>
+                <td scope="row">
+                  <a href="drag-queens/<%= queen.drag_queen_id %>/edit" class="link-danger">
+                    <%= queen.drag_queen_name %>
+                  </a>
+                </td>
+                <td><%= queen.age_during_season %></td>
+                <td><%= queen.hometown %></td>
+                <td><%= queen.placement %></td>
+                <td><%= queen.season_name %> (<%= queen.year %>)</td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <div class="d-grid mb-4">
+          <a href="/drag-queens/new" class="btn btn-danger">Add a Drag Queen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
